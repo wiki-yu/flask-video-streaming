@@ -45,10 +45,11 @@ def gen(camera):
     print("step4")
     while True:
         frame = camera.get_frame()
-        width = 5472//10
-        height = 3648//10
-        dim = (width,height)
-        frame = cv2.resize(frame, dim, interpolation=cv2.INTER_AREA) 
+        height = 500
+        width = 500
+        dim = (width, height)
+        # print(frame.shape)
+        # frame1 = cv2.resize(frame, dim, interpolation = cv2.INTER_AREA)
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
